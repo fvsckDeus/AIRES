@@ -1,311 +1,342 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CO">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FRÍO GAS EXPRESS | Recarga de Gas para Aires Acondicionados</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Frío Gas Colombia | Recarga de Gas para Aires Acondicionados</title>
+
+<meta name="description" content="Empresa líder en Colombia en recarga de gas para aires acondicionados. Servicio técnico a domicilio en Bogotá y envíos a toda Colombia.">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
 html{
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-    background:#02152b;
-    color:#fff;
-    overflow-x:hidden;
+background:#020f1d;
+color:#fff;
+overflow-x:hidden;
 }
 
 /* PRELOADER */
 
 #preloader{
-    position:fixed;
-    inset:0;
-    background:#02152b;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:99999;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#02152b;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:999999;
 }
 
 .loader{
-    width:90px;
-    height:90px;
-    border:6px solid rgba(255,255,255,.2);
-    border-top:6px solid #42b6ff;
-    border-radius:50%;
-    animation:spin 1s linear infinite;
+width:100px;
+height:100px;
+border-radius:50%;
+border:6px solid rgba(255,255,255,.15);
+border-top:6px solid #4dc3ff;
+animation:giro 1s linear infinite;
 }
 
-@keyframes spin{
-    to{
-        transform:rotate(360deg);
-    }
+@keyframes giro{
+100%{
+transform:rotate(360deg);
+}
 }
 
-/* FONDO ANIMADO */
+/* FONDO */
 
-.bg{
-    position:fixed;
-    width:100%;
-    height:100%;
-    z-index:-2;
-    background:linear-gradient(
-    135deg,
-    #00101f,
-    #022d58,
-    #0b5ca3,
-    #02152b
-    );
-    background-size:400% 400%;
-    animation:gradientMove 12s ease infinite;
+.dynamic-bg{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+z-index:-2;
+background:linear-gradient(-45deg,#02152b,#053c73,#0f66b5,#02152b);
+background-size:400% 400%;
+animation:fondo 15s ease infinite;
 }
 
-@keyframes gradientMove{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
+@keyframes fondo{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
 }
 
-.bubble{
-    position:absolute;
-    bottom:-150px;
-    border-radius:50%;
-    background:rgba(255,255,255,.05);
-    animation:float linear infinite;
+.particle{
+position:absolute;
+border-radius:50%;
+background:rgba(255,255,255,.08);
+animation:subir linear infinite;
 }
 
-@keyframes float{
-    from{
-        transform:translateY(0);
-    }
-    to{
-        transform:translateY(-120vh);
-    }
+@keyframes subir{
+from{
+transform:translateY(0);
+}
+to{
+transform:translateY(-120vh);
+}
 }
 
 /* HEADER */
 
 header{
-    padding:25px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    backdrop-filter:blur(10px);
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:rgba(0,0,0,.2);
+position:fixed;
+top:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+backdrop-filter:blur(20px);
+background:rgba(0,0,0,.15);
+z-index:1000;
 }
 
 .logo{
-    font-size:28px;
-    font-weight:800;
-    color:#66d1ff;
+font-size:28px;
+font-weight:900;
+color:#66d9ff;
 }
 
 nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:25px;
-    transition:.3s;
+text-decoration:none;
+color:#fff;
+margin-left:25px;
+font-weight:500;
+transition:.3s;
 }
 
 nav a:hover{
-    color:#66d1ff;
+color:#66d9ff;
 }
 
 /* HERO */
 
 .hero{
-    min-height:90vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:40px;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:120px 20px 50px;
 }
 
 .hero-content{
-    max-width:900px;
+max-width:1000px;
+}
+
+.badge{
+display:inline-block;
+padding:10px 20px;
+background:rgba(77,195,255,.15);
+border:1px solid rgba(77,195,255,.4);
+border-radius:50px;
+margin-bottom:25px;
 }
 
 .hero h1{
-    font-size:4rem;
-    line-height:1.1;
-    margin-bottom:20px;
+font-size:4rem;
+line-height:1.1;
+margin-bottom:25px;
 }
 
-.hero span{
-    color:#6ed7ff;
+.hero h1 span{
+color:#66d9ff;
 }
 
 .hero p{
-    font-size:1.2rem;
-    opacity:.9;
-    margin-bottom:35px;
+font-size:1.2rem;
+opacity:.9;
+max-width:900px;
+margin:auto;
+margin-bottom:35px;
+line-height:1.8;
 }
 
 .btn{
-    display:inline-block;
-    padding:16px 35px;
-    border-radius:50px;
-    text-decoration:none;
-    background:#00a6ff;
-    color:white;
-    font-weight:700;
-    transition:.3s;
-    box-shadow:0 0 25px rgba(0,166,255,.5);
+display:inline-block;
+padding:18px 40px;
+background:#0d9fff;
+border-radius:50px;
+color:#fff;
+text-decoration:none;
+font-weight:700;
+box-shadow:0 0 35px rgba(13,159,255,.6);
+transition:.3s;
 }
 
 .btn:hover{
-    transform:translateY(-4px);
+transform:translateY(-5px);
 }
 
 /* SECCIONES */
 
 section{
-    padding:90px 8%;
+padding:90px 8%;
 }
 
-.section-title{
-    text-align:center;
-    font-size:2.5rem;
-    margin-bottom:50px;
+.title{
+text-align:center;
+font-size:2.8rem;
+margin-bottom:20px;
 }
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
+.subtitle{
+text-align:center;
+max-width:900px;
+margin:auto;
+opacity:.85;
+margin-bottom:50px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
 .card{
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.1);
-    backdrop-filter:blur(10px);
-    padding:30px;
-    border-radius:20px;
-    transition:.4s;
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(15px);
+padding:30px;
+border-radius:25px;
+border:1px solid rgba(255,255,255,.08);
+transition:.4s;
 }
 
 .card:hover{
-    transform:translateY(-8px);
+transform:translateY(-10px);
 }
 
 .card h3{
-    margin-bottom:15px;
-    color:#79dbff;
+color:#7cdfff;
+margin-bottom:15px;
 }
 
-.card p{
-    opacity:.85;
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
 }
 
-/* BENEFICIOS */
-
-.benefits{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+.stat{
+background:rgba(255,255,255,.06);
+padding:35px;
+border-radius:20px;
+text-align:center;
 }
 
-.benefit{
-    background:rgba(255,255,255,.07);
-    padding:25px;
-    border-radius:18px;
-    text-align:center;
+.stat h2{
+font-size:3rem;
+color:#7cdfff;
 }
 
-/* FORMULARIO */
+/* FORM */
 
-.form-box{
-    max-width:700px;
-    margin:auto;
-    background:rgba(255,255,255,.08);
-    padding:40px;
-    border-radius:25px;
-    backdrop-filter:blur(15px);
+.form-container{
+max-width:800px;
+margin:auto;
+background:rgba(255,255,255,.06);
+padding:40px;
+border-radius:25px;
+backdrop-filter:blur(15px);
 }
 
-.form-box input,
-.form-box textarea{
-    width:100%;
-    padding:15px;
-    margin-top:15px;
-    border:none;
-    border-radius:12px;
-    background:rgba(255,255,255,.1);
-    color:white;
+.form-container input,
+.form-container textarea{
+width:100%;
+padding:16px;
+margin-top:15px;
+background:rgba(255,255,255,.08);
+border:none;
+border-radius:12px;
+color:#fff;
 }
 
-.form-box textarea{
-    resize:none;
-    height:130px;
+.form-container textarea{
+height:140px;
+resize:none;
 }
 
-.form-box button{
-    width:100%;
-    margin-top:20px;
-    padding:15px;
-    border:none;
-    border-radius:15px;
-    background:#00a6ff;
-    color:white;
-    font-size:18px;
-    font-weight:700;
-    cursor:pointer;
+.form-container button{
+width:100%;
+padding:18px;
+margin-top:20px;
+background:#0d9fff;
+color:white;
+font-size:18px;
+font-weight:700;
+border:none;
+border-radius:15px;
+cursor:pointer;
 }
 
 /* FOOTER */
 
 footer{
-    text-align:center;
-    padding:40px;
-    opacity:.8;
+padding:40px;
+text-align:center;
+background:rgba(0,0,0,.2);
 }
 
 /* WHATSAPP */
 
 .whatsapp{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    width:70px;
-    height:70px;
-    border-radius:50%;
-    background:#25D366;
-    color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-decoration:none;
-    font-size:32px;
-    box-shadow:0 0 20px rgba(37,211,102,.7);
-    z-index:999;
+position:fixed;
+bottom:25px;
+right:25px;
+width:75px;
+height:75px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+font-size:34px;
+color:white;
+box-shadow:0 0 30px rgba(37,211,102,.7);
+z-index:999;
 }
+
+/* RESPONSIVE */
 
 @media(max-width:768px){
 
 .hero h1{
-    font-size:2.4rem;
+font-size:2.5rem;
 }
 
 nav{
-    display:none;
+display:none;
+}
+
+.title{
+font-size:2rem;
 }
 
 }
+
 </style>
 </head>
 <body>
@@ -314,21 +345,29 @@ nav{
 <div class="loader"></div>
 </div>
 
-<div class="bg" id="bg"></div>
+<div class="dynamic-bg" id="bg"></div>
 
 <header>
-<div class="logo">❄ FRÍO GAS EXPRESS</div>
+
+<div class="logo">
+❄ FRÍO GAS COLOMBIA
+</div>
 
 <nav>
 <a href="#servicios">Servicios</a>
-<a href="#beneficios">Beneficios</a>
+<a href="#lideres">Nosotros</a>
 <a href="#contacto">Contacto</a>
 </nav>
+
 </header>
 
 <section class="hero">
 
 <div class="hero-content">
+
+<div class="badge">
+🏆 EMPRESA LÍDER EN COLOMBIA
+</div>
 
 <h1>
 Recarga Profesional de
@@ -336,14 +375,19 @@ Recarga Profesional de
 </h1>
 
 <p>
-Servicio rápido, garantizado y a domicilio.
-Recarga de gas R22, R410A, mantenimiento y venta de pipetas.
+⭐ Somos líderes en Colombia en recarga de gas para sistemas de refrigeración y aire acondicionado.
+<br><br>
+🚚 Realizamos envíos a toda Colombia.
+<br>
+🏠 Servicio técnico especializado a domicilio en Bogotá.
+<br>
+❄ Recarga de gases R22, R410A, R32, 134A y más.
+<br>
+⚡ Atención rápida, garantía y soporte profesional.
 </p>
 
-<a class="btn"
-href="https://wa.me/573183664507"
-target="_blank">
-Solicitar Servicio
+<a href="https://wa.me/573183664507" class="btn">
+SOLICITAR SERVICIO AHORA
 </a>
 
 </div>
@@ -352,66 +396,98 @@ Solicitar Servicio
 
 <section id="servicios">
 
-<h2 class="section-title">
+<h2 class="title">
 Nuestros Servicios
 </h2>
 
-<div class="cards">
+<p class="subtitle">
+Soluciones profesionales para hogares, empresas, técnicos y proyectos industriales.
+</p>
+
+<div class="grid">
 
 <div class="card">
-<h3>Recarga R410A</h3>
-<p>
-Recupera el rendimiento de tu aire acondicionado con gas de alta calidad.
-</p>
+<h3>❄ Recarga de Gas R22</h3>
+<p>Recarga especializada para equipos residenciales y comerciales.</p>
 </div>
 
 <div class="card">
-<h3>Recarga R22</h3>
-<p>
-Servicio técnico especializado para sistemas residenciales y comerciales.
-</p>
+<h3>❄ Recarga de Gas R410A</h3>
+<p>Máximo rendimiento para sistemas modernos de aire acondicionado.</p>
 </div>
 
 <div class="card">
-<h3>Venta de Pipetas</h3>
-<p>
-Disponibilidad inmediata de diferentes referencias de gas refrigerante.
-</p>
+<h3>🚚 Venta de Pipetas</h3>
+<p>Venta y distribución de gases refrigerantes certificados.</p>
 </div>
 
 <div class="card">
-<h3>Mantenimiento</h3>
-<p>
-Limpieza, revisión y optimización del sistema de refrigeración.
-</p>
+<h3>🛠 Mantenimiento</h3>
+<p>Limpieza, revisión y optimización de equipos de refrigeración.</p>
 </div>
 
 </div>
 
 </section>
 
-<section id="beneficios">
+<section id="lideres">
 
-<h2 class="section-title">
-¿Por Qué Elegirnos?
+<h2 class="title">
+¿Por Qué Somos Los Número Uno En Colombia?
 </h2>
 
-<div class="benefits">
+<div class="grid">
 
-<div class="benefit">
-<h3>⚡ Atención Rápida</h3>
+<div class="card">
+<h3>🇨🇴 Cobertura Nacional</h3>
+<p>Envíos de gases refrigerantes y suministros a todo el país.</p>
 </div>
 
-<div class="benefit">
-<h3>🏠 Servicio a Domicilio</h3>
+<div class="card">
+<h3>🏠 Servicio en Bogotá</h3>
+<p>Técnicos especializados para atención rápida a domicilio.</p>
 </div>
 
-<div class="benefit">
-<h3>🛠 Técnicos Expertos</h3>
+<div class="card">
+<h3>⚡ Atención Inmediata</h3>
+<p>Respuesta rápida para hogares, empresas y negocios.</p>
 </div>
 
-<div class="benefit">
-<h3>✅ Garantía</h3>
+<div class="card">
+<h3>✅ Garantía Total</h3>
+<p>Productos certificados y respaldo profesional.</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">
+Nuestros Resultados
+</h2>
+
+<div class="stats">
+
+<div class="stat">
+<h2>+10K</h2>
+<p>Servicios Realizados</p>
+</div>
+
+<div class="stat">
+<h2>+32</h2>
+<p>Departamentos Atendidos</p>
+</div>
+
+<div class="stat">
+<h2>24/7</h2>
+<p>Atención al Cliente</p>
+</div>
+
+<div class="stat">
+<h2>100%</h2>
+<p>Compromiso y Calidad</p>
 </div>
 
 </div>
@@ -420,24 +496,30 @@ Limpieza, revisión y optimización del sistema de refrigeración.
 
 <section id="contacto">
 
-<h2 class="section-title">
-Solicita tu Cotización
+<h2 class="title">
+Recibe Tu Cotización Gratis
 </h2>
 
-<div class="form-box">
+<p class="subtitle">
+Déjanos tus datos y uno de nuestros especialistas te contactará para ayudarte con tu servicio.
+</p>
+
+<div class="form-container">
 
 <form>
 
 <input type="text" placeholder="Nombre Completo" required>
 
-<input type="tel" placeholder="Teléfono" required>
+<input type="tel" placeholder="Número de WhatsApp" required>
+
+<input type="text" placeholder="Ciudad">
 
 <input type="text" placeholder="Dirección">
 
 <textarea placeholder="Describe el servicio que necesitas"></textarea>
 
 <button type="submit">
-Enviar Solicitud
+SOLICITAR COTIZACIÓN
 </button>
 
 </form>
@@ -447,13 +529,14 @@ Enviar Solicitud
 </section>
 
 <footer>
-© 2026 FRÍO GAS EXPRESS | Recarga de Gas para Aires Acondicionados
+
+<h3>FRÍO GAS COLOMBIA</h3>
+<p>Recarga de Gas • Venta de Pipetas • Servicio Técnico a Domicilio</p>
+<p>🚚 Envíos a Toda Colombia | 🏠 Servicio en Bogotá</p>
+
 </footer>
 
-<a
-class="whatsapp"
-href="https://wa.me/573183664507"
-target="_blank">
+<a href="https://wa.me/573183664507" class="whatsapp">
 ☎
 </a>
 
@@ -467,25 +550,26 @@ document.getElementById("preloader").style.display="none";
 },1200);
 });
 
-/* BURBUJAS DINÁMICAS */
+/* PARTÍCULAS */
 
-const bg=document.getElementById("bg");
+const bg = document.getElementById("bg");
 
-for(let i=0;i<30;i++){
+for(let i=0;i<45;i++){
 
-let bubble=document.createElement("span");
+let p=document.createElement("div");
 
-bubble.classList.add("bubble");
+p.classList.add("particle");
 
-let size=Math.random()*100+20;
+let size=Math.random()*120+20;
 
-bubble.style.width=size+"px";
-bubble.style.height=size+"px";
-bubble.style.left=Math.random()*100+"%";
-bubble.style.animationDuration=(Math.random()*15+10)+"s";
-bubble.style.opacity=Math.random();
+p.style.width=size+"px";
+p.style.height=size+"px";
+p.style.left=Math.random()*100+"%";
+p.style.bottom="-150px";
+p.style.opacity=Math.random()*0.6;
+p.style.animationDuration=(Math.random()*20+10)+"s";
 
-bg.appendChild(bubble);
+bg.appendChild(p);
 
 }
 
