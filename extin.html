@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRÍO GAS EXPRESS | Recarga de Gas para Aires Acondicionados</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#02152b;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* PRELOADER */
+
+#preloader{
+    position:fixed;
+    inset:0;
+    background:#02152b;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+}
+
+.loader{
+    width:90px;
+    height:90px;
+    border:6px solid rgba(255,255,255,.2);
+    border-top:6px solid #42b6ff;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* FONDO ANIMADO */
+
+.bg{
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:-2;
+    background:linear-gradient(
+    135deg,
+    #00101f,
+    #022d58,
+    #0b5ca3,
+    #02152b
+    );
+    background-size:400% 400%;
+    animation:gradientMove 12s ease infinite;
+}
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.bubble{
+    position:absolute;
+    bottom:-150px;
+    border-radius:50%;
+    background:rgba(255,255,255,.05);
+    animation:float linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-120vh);
+    }
+}
+
+/* HEADER */
+
+header{
+    padding:25px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    backdrop-filter:blur(10px);
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(0,0,0,.2);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:800;
+    color:#66d1ff;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#66d1ff;
+}
+
+/* HERO */
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.hero h1{
+    font-size:4rem;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero span{
+    color:#6ed7ff;
+}
+
+.hero p{
+    font-size:1.2rem;
+    opacity:.9;
+    margin-bottom:35px;
+}
+
+.btn{
+    display:inline-block;
+    padding:16px 35px;
+    border-radius:50px;
+    text-decoration:none;
+    background:#00a6ff;
+    color:white;
+    font-weight:700;
+    transition:.3s;
+    box-shadow:0 0 25px rgba(0,166,255,.5);
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+}
+
+/* SECCIONES */
+
+section{
+    padding:90px 8%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:50px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.1);
+    backdrop-filter:blur(10px);
+    padding:30px;
+    border-radius:20px;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    margin-bottom:15px;
+    color:#79dbff;
+}
+
+.card p{
+    opacity:.85;
+}
+
+/* BENEFICIOS */
+
+.benefits{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.benefit{
+    background:rgba(255,255,255,.07);
+    padding:25px;
+    border-radius:18px;
+    text-align:center;
+}
+
+/* FORMULARIO */
+
+.form-box{
+    max-width:700px;
+    margin:auto;
+    background:rgba(255,255,255,.08);
+    padding:40px;
+    border-radius:25px;
+    backdrop-filter:blur(15px);
+}
+
+.form-box input,
+.form-box textarea{
+    width:100%;
+    padding:15px;
+    margin-top:15px;
+    border:none;
+    border-radius:12px;
+    background:rgba(255,255,255,.1);
+    color:white;
+}
+
+.form-box textarea{
+    resize:none;
+    height:130px;
+}
+
+.form-box button{
+    width:100%;
+    margin-top:20px;
+    padding:15px;
+    border:none;
+    border-radius:15px;
+    background:#00a6ff;
+    color:white;
+    font-size:18px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:40px;
+    opacity:.8;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:#25D366;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    font-size:32px;
+    box-shadow:0 0 20px rgba(37,211,102,.7);
+    z-index:999;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.4rem;
+}
+
+nav{
+    display:none;
+}
+
+}
+</style>
+</head>
+<body>
+
+<div id="preloader">
+<div class="loader"></div>
+</div>
+
+<div class="bg" id="bg"></div>
+
+<header>
+<div class="logo">❄ FRÍO GAS EXPRESS</div>
+
+<nav>
+<a href="#servicios">Servicios</a>
+<a href="#beneficios">Beneficios</a>
+<a href="#contacto">Contacto</a>
+</nav>
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>
+Recarga Profesional de
+<span>Gas para Aires Acondicionados</span>
+</h1>
+
+<p>
+Servicio rápido, garantizado y a domicilio.
+Recarga de gas R22, R410A, mantenimiento y venta de pipetas.
+</p>
+
+<a class="btn"
+href="https://wa.me/573183664507"
+target="_blank">
+Solicitar Servicio
+</a>
+
+</div>
+
+</section>
+
+<section id="servicios">
+
+<h2 class="section-title">
+Nuestros Servicios
+</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Recarga R410A</h3>
+<p>
+Recupera el rendimiento de tu aire acondicionado con gas de alta calidad.
+</p>
+</div>
+
+<div class="card">
+<h3>Recarga R22</h3>
+<p>
+Servicio técnico especializado para sistemas residenciales y comerciales.
+</p>
+</div>
+
+<div class="card">
+<h3>Venta de Pipetas</h3>
+<p>
+Disponibilidad inmediata de diferentes referencias de gas refrigerante.
+</p>
+</div>
+
+<div class="card">
+<h3>Mantenimiento</h3>
+<p>
+Limpieza, revisión y optimización del sistema de refrigeración.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="beneficios">
+
+<h2 class="section-title">
+¿Por Qué Elegirnos?
+</h2>
+
+<div class="benefits">
+
+<div class="benefit">
+<h3>⚡ Atención Rápida</h3>
+</div>
+
+<div class="benefit">
+<h3>🏠 Servicio a Domicilio</h3>
+</div>
+
+<div class="benefit">
+<h3>🛠 Técnicos Expertos</h3>
+</div>
+
+<div class="benefit">
+<h3>✅ Garantía</h3>
+</div>
+
+</div>
+
+</section>
+
+<section id="contacto">
+
+<h2 class="section-title">
+Solicita tu Cotización
+</h2>
+
+<div class="form-box">
+
+<form>
+
+<input type="text" placeholder="Nombre Completo" required>
+
+<input type="tel" placeholder="Teléfono" required>
+
+<input type="text" placeholder="Dirección">
+
+<textarea placeholder="Describe el servicio que necesitas"></textarea>
+
+<button type="submit">
+Enviar Solicitud
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 FRÍO GAS EXPRESS | Recarga de Gas para Aires Acondicionados
+</footer>
+
+<a
+class="whatsapp"
+href="https://wa.me/573183664507"
+target="_blank">
+☎
+</a>
+
+<script>
+
+/* PRELOADER */
+
+window.addEventListener("load",()=>{
+setTimeout(()=>{
+document.getElementById("preloader").style.display="none";
+},1200);
+});
+
+/* BURBUJAS DINÁMICAS */
+
+const bg=document.getElementById("bg");
+
+for(let i=0;i<30;i++){
+
+let bubble=document.createElement("span");
+
+bubble.classList.add("bubble");
+
+let size=Math.random()*100+20;
+
+bubble.style.width=size+"px";
+bubble.style.height=size+"px";
+bubble.style.left=Math.random()*100+"%";
+bubble.style.animationDuration=(Math.random()*15+10)+"s";
+bubble.style.opacity=Math.random();
+
+bg.appendChild(bubble);
+
+}
+
+</script>
+
+</body>
+</html>
